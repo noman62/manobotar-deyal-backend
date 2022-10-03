@@ -1,6 +1,7 @@
 import User from '../models/user'
 import { hashPassword, comparePassword } from '../utils/auth'
-
+// import { Jwt } from 'jsonwebtoken'
+const Jwt=require('jsonwebtoken')
 //User Registration
 export const register = async (req, res) => {
   try {
@@ -41,6 +42,7 @@ export const register = async (req, res) => {
 }
 //User Login
 export const login = async (req, res) => {
+  console.log(req.body);
   try {
     const { email, password } = req.body
 
@@ -53,7 +55,7 @@ export const login = async (req, res) => {
     if (!match) return res.status(400).send("Password didn't match.")
 
     // Create Signed JWT
-    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+    const token = Jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: '7d'
     })
 
