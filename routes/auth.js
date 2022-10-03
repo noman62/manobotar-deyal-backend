@@ -15,6 +15,6 @@ import {
 // Routes
 router.post('/register', register)
 router.post('/login', login)
-router.get('/allUser', allUser)
 router.get('/logout', logout)
+router.get('/allUser', allUser)
 module.exports = router

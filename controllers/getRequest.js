@@ -2,13 +2,14 @@ import getRequest from '../models/getRequest'
 
 //User Request
 export const newRequest = async (req, res) => {
+  console.log(req.body)
   try {
     // Save user in database
     const setRequest = new getRequest({
       ...req.body
     })
     await setRequest.save().then(newRequest => {
-      console.log('New Donation----->', newRequest)
+      console.log('New Request----->', newRequest)
     })
 
     //Send success response to front-end

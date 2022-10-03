@@ -52,6 +52,21 @@ export const login = async (req, res) => {
     const match = await comparePassword(password, user.password)
     if (!match) return res.status(400).send("Password didn't match.")
 
+    // Create Signed JWT
+    const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: '7d'
+    })
+
+    // Return User & Token to client, exclude hashed password.
+    user.password = undefined
+
+    // Send token in cookie.
+    res.cookie('token', token, {
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true // only works on https
+    })
+
     res.json(user)
   } catch (err) {
     console.log(err)
