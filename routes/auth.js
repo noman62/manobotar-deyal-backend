@@ -1,8 +1,7 @@
 import express from 'express'
 const router = express.Router()
 
-// middleware
-import { requireSignin } from '../middlewares'
+
 
 // controllers
 import {
@@ -17,5 +16,5 @@ import {
 router.post('/register', register)
 router.post('/login', login)
 router.get('/logout', logout)
-router.get('/allUser',requireSignin, allUser)
+router.get('/allUser', allUser)
 module.exports = router
