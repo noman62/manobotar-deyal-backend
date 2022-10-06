@@ -58,3 +58,11 @@ export const read = async (req, res) => {
     console.log(err)
   }
 }
+
+export const specificDonation= async (req, res) => {
+  const userEmail = req.query.email
+  const all = await Donation
+    .find({ email: { $regex: userEmail, $options: '$i' } })
+    .exec()
+  res.json(all)
+}

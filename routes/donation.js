@@ -9,6 +9,7 @@ import {
  newDonation,
  allDonation,
  read,
+ specificDonation,
 } from '../controllers/donation'
 
 // Routes
@@ -16,6 +17,7 @@ import {
 
 router.post('/donation',newDonation)
 router.get('/donations', allDonation)
+router.get('/user-donation',specificDonation)
 router.get('/donation/:donationId', read)
 
 
