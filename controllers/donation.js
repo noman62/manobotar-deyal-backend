@@ -66,3 +66,28 @@ export const specificDonation= async (req, res) => {
     .exec()
   res.json(all)
 }
+
+export const updateStatus=async(req,res)=>{
+  const id = req.params.id
+  console.log(id)
+  
+  try {
+    const doc = await Donation.findByIdAndUpdate(
+      {
+        _id:id,
+      },
+      {
+        status:"success",
+      },
+      {
+        new:true,
+      }
+    )
+    await doc.save().then(newdoc => {
+      console.log('New Doc----->', newdoc)
+    })
+    return res.json({ ok: true })
+  } catch (err) {
+    console.log(err)
+  }
+}
