@@ -32,3 +32,28 @@ export const adminRequest = async (req, res) => {
   const admin = await getRequest.find().exec()
   res.json(admin)
 }
+
+export const updateStatus=async(req,res)=>{
+  const id = req.params.id
+  console.log(id)
+  
+  try {
+    const doc = await getRequest.findByIdAndUpdate(
+      {
+        _id:id,
+      },
+      {
+        status:"success",
+      },
+      {
+        new:true,
+      }
+    )
+    await doc.save().then(newdoc => {
+      console.log('New Doc----->', newdoc)
+    })
+    return res.json({ ok: true })
+  } catch (err) {
+    console.log(err)
+  }
+}
