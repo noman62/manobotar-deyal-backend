@@ -7,7 +7,8 @@ const router = express.Router()
 import {
 newRequest,
 allRequest,
-adminRequest
+adminRequest,
+updateStatus
 } from '../controllers/getRequest'
 
 // Routes
@@ -16,7 +17,7 @@ adminRequest
 router.post('/request',newRequest)
 router.get('/requests', allRequest)
 router.get('/allrequest', adminRequest)
-// router.put('/updateRequest/:id', updateStatus)
+router.put('/updateRequest/:id', updateStatus)
 // router.get('/donation/:donationId', read)
 
 
