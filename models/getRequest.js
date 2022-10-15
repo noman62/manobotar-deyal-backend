@@ -9,10 +9,6 @@ const getRequestSchema = new Schema(
       trim: true,
       required: true,
     },
-    nid: {
-      type: Number,
-      required: true,
-    },
     email: {
       type: String,
       required: true,
