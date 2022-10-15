@@ -91,3 +91,14 @@ export const updateStatus=async(req,res)=>{
     console.log(err)
   }
 }
+
+export const deleteDonation=async(req,res)=>{
+  Donation.deleteOne({ _id:req.params.id })
+      .then(result => {
+        res.send(result.deletedCount > 0)
+        console.log(result.deletedCount);
+      })
+
+  
+  
+}

@@ -11,6 +11,7 @@ import {
  read,
  specificDonation,
  updateStatus,
+ deleteDonation
 } from '../controllers/donation'
 
 // Routes
@@ -21,6 +22,7 @@ router.get('/donations', allDonation)
 router.get('/user-donation',specificDonation)
 router.get('/donation/:donationId', read)
 router.put('/update/:id', updateStatus)
+router.delete('/deleteDonation/:id', deleteDonation)
 
 
 
