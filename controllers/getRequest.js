@@ -35,7 +35,6 @@ export const adminRequest = async (req, res) => {
 
 export const updateStatus=async(req,res)=>{
   const id = req.params.id
-  console.log(id)
   
   try {
     const doc = await getRequest.findByIdAndUpdate(
@@ -57,3 +56,15 @@ export const updateStatus=async(req,res)=>{
     console.log(err)
   }
 }
+
+export const deleteRequest=async(req,res)=>{
+  getRequest.deleteOne({ _id:req.params.id })
+      .then(result => {
+        res.send(result.deletedCount > 0)
+        console.log(result.deletedCount);
+      })
+
+  
+  
+}
+
