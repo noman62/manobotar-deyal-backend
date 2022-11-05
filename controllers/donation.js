@@ -1,7 +1,7 @@
 import User from '../models/user'
 import Donation from '../models/donation'
 
-//User Registration
+//User Donation
 export const newDonation = async (req, res) => {
   try {
     const { productName, productDetails, reasons, email, imageURL } = req.body

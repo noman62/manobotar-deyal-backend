@@ -17,6 +17,16 @@ const getRequestSchema = new Schema(
       type: String,
       required: true,
     },
+    imageURL: {
+      type: String,
+      required: true,
+      
+    },
+    address: {
+      type: String,
+      trim: true,
+      required: true,
+    },
     status: {
       type: String,
       default: 'Pending',
