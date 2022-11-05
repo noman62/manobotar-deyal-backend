@@ -90,3 +90,12 @@ export const allUser = async (req, res) => {
   const all = await User.find().exec()
   res.json(all)
 }
+
+export const deleteUser=async(req,res)=>{
+  console.log(req.params.id)
+  User.deleteOne({ _id:req.params.id })
+      .then(result => {
+        res.send(result.deletedCount > 0)
+        console.log(result.deletedCount);
+      })
+}

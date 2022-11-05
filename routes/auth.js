@@ -9,6 +9,7 @@ import {
   login,
   logout,
   allUser,
+  deleteUser
 
 } from '../controllers/auth'
 
@@ -17,4 +18,5 @@ router.post('/register', register)
 router.post('/login', login)
 router.get('/logout', logout)
 router.get('/allUser', allUser)
+router.delete('/delete/:id', deleteUser)
 module.exports = router
