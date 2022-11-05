@@ -17,13 +17,10 @@ const userSchema = new Schema(
     },
     mobile: {
       type: String,
-      trim: true,
-      required: true,
     },
     address: {
       type: String,
-      trim: true,
-      required: true,
+      
     },
     password: {
       type: String,
