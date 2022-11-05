@@ -27,6 +27,11 @@ const getRequestSchema = new Schema(
       trim: true,
       required: true,
     },
+    reference: {
+      type: String,
+      trim: true,
+      required: true,
+    },
     status: {
       type: String,
       default: 'Pending',
