@@ -66,6 +66,14 @@ export const specificDonation= async (req, res) => {
     .exec()
   res.json(all)
 }
+export const searchDonation= async (req, res) => {
+
+  const userDonation = req.query.productName
+  const all = await Donation
+    .find({ productName: { $regex: userDonation, $options: '$i' } })
+    .exec()
+  res.json(all)
+}
 
 export const updateStatus=async(req,res)=>{
   const id = req.params.id
